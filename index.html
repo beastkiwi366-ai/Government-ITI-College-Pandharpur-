@@ -7,10 +7,47 @@
     <title>ITI Pandharpur</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Registration Overlay Styles Removed */
-        
-        /* Main Website Wrapper - Always Visible Now */
-        #main-site-wrapper { display: block; }
+        /* Registration Overlay Styles */
+        #registration-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 20000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .reg-box {
+            width: 90%;
+            max-width: 400px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            text-align: center;
+            border-top: 6px solid #007bff;
+        }
+
+        .reg-box h2 { color: #007bff; font-size: 1.4rem; margin-bottom: 5px; }
+        .reg-box h3 { color: #333; font-size: 1rem; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+
+        .reg-group { text-align: left; margin-bottom: 15px; }
+        .reg-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+        .reg-group input { 
+            width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px;
+        }
+
+        .reg-btn {
+            width: 100%; padding: 15px; background: #007bff; color: white; border: none;
+            border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: 0.3s;
+        }
+
+        .reg-btn:disabled { background: #ccc; cursor: not-allowed; }
+
+        /* Hide main website initially */
+        #main-site-wrapper { display: none; }
 
         /* Original Website Styles */
         #trades-section, #about-section, #gallery-section, #contact-section, #exam-section {
@@ -86,6 +123,29 @@
 </head>
 <body>
 
+    <div id="registration-overlay">
+        <div class="reg-box">
+            <h2>यशवंतराव केळकर शासकीय ITI, पंढरपूर</h2>
+            <h3></h3>
+            <form id="mainRegistrationForm">
+                <div class="reg-group">
+                    <label>पूर्ण नाव (Full Name)</label>
+                    <input type="text" name="fullName" required placeholder="तुमचे नाव टाका">
+                </div>
+                <div class="reg-group">
+                    <label>मोबाईल नंबर (Phone Number)</label>
+                    <input type="tel" id="userPhone" name="phone" pattern="[0-9]{10}" maxlength="10" placeholder="उदा. 9876543210" required>
+                </div>
+                <input type="hidden" name="email" value="registration@iti.com">
+                <input type="hidden" name="subject" value="Website Access Registration">
+                <input type="hidden" name="message" value="User registered to view website">
+                
+                <button type="submit" id="regSubmitBtn" class="reg-btn">नोंदणी करा आणि वेबसाईट पहा</button>
+            </form>
+            <p id="regStatus" style="display:none; margin-top:15px; color:#007bff; font-weight:bold;">माहिती जतन होत आहे, कृपया थांबा...</p>
+        </div>
+    </div>
+
     <div id="main-site-wrapper">
         <header class="main-header">
             <div class="header-top">
@@ -124,7 +184,7 @@
                 <h3>ITI कॉलेज का निवडावे?</h3>
                 <ul>
                     <li>अत्याधुनिक वर्कशॉप आणि प्रगत मशिनरी उपलब्ध आहेत.</li>
-                    <li>उत्कृष्ट प्लेसमेंट रेकॉर्ड आणि नामांकित कंपन्यांशी टाय-अप.</li>
+                    <li>उत्कृष्ट प्लेसमेंट रेकॉर्ड और नामांकित कंपन्यांशी टाय-अप.</li>
                     <li>अनुभवी आणि कुशल प्रशिक्षकांकडून मार्गदर्शन.</li>
                     <li>कौशल्य विकासावर आधारित रोजगाराभिमुख अभ्यासक्रम.</li>
                 </ul>
@@ -190,7 +250,7 @@
                 <div class="facility-card"><div class="facility-icon">💻</div><h4>IT Lab</h4><p>Advanced IT Lab equipped with 21 PCs and a modern smart screen.</p></div>
                 <div class="facility-card"><div class="facility-icon">🛡️</div><h4>Security</h4><p>The entire campus is under 24/7 CCTV surveillance for safety.</p></div>
                 <div class="facility-card"><div class="facility-icon">🎓</div><h4>Success Rate</h4><p>A proud institution where more than 400 students pass out  every year.</p></div>
-                <div class="facility-card"><div class="facility-icon">🍱</div><h4>Canteen</h4><p>A We have an on-campus canteen that offers fresh snacks & hygienic food daily.</p></div>
+                <div class="facility-card"><div class="facility-icon">🍱</div><h4>Canteen</h4></p>A We have an on-campus canteen that offers fresh snacks & hygienic food daily.</p></div>
             </div>
         </section>
 
@@ -213,7 +273,7 @@
             <div class="gallery-category">
                 <h4 class="gallery-title">३. विज्ञान तंत्रज्ञान</h4>
                 <div class="gallery-grid grid-3">
-                    <div class="gallery-item"><img src="IMG-20260212-WA0025.jpg" alt="विज्ञान तंत्रज्ञान इमेज 1"></div>
+                    <div class="gallery-item"><img src="IMG-20260212-WA0025.jpg" alt=""></div>
                     <div class="gallery-item"><img src="IMG-20260212-WA0021.jpg" alt="विज्ञान तंत्रज्ञान इमेज २"></div>
                     <div class="gallery-item"><img src="IMG-20260212-WA0017.jpg" alt="विज्ञान तंत्रज्ञान इमेज ३"></div>
                 </div>
@@ -237,7 +297,7 @@
                     </div>
                     <div class="map-container">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3801.446860163351!2d75.32837807431057!3d17.652643595116792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc41703080f5555%3A0xc47e33f38072045e!2sGovernment%20Industrial%20Training%20Institute%2C%20Pandharpur!5e0!3m2!1sen!2sin!4v1707920000000!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+</div>
                 </div>
 
                 <div class="feedback-form">
@@ -269,20 +329,59 @@
     </div>
 
     <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyHSra4_7Ju8hHmCQzp-zvqEm_y-cwovVdB6V4TLhKkjSKoTa83kC0eXHl9iFWGt4mW/exec';
+        
+        const regForm = document.getElementById('mainRegistrationForm');
+        const regBtn = document.getElementById('regSubmitBtn');
+        const regStatus = document.getElementById('regStatus');
+        const overlay = document.getElementById('registration-overlay');
+        const siteWrapper = document.getElementById('main-site-wrapper');
+
+        function unlockSite() {
+            overlay.style.display = 'none';
+            siteWrapper.style.display = 'block';
+        }
+
+        regForm.addEventListener('submit', e => {
+            e.preventDefault();
+            const phoneInput = document.getElementById('userPhone').value;
+            const phonePattern = /^[6-9]\d{9}$/;
+            if (!phonePattern.test(phoneInput)) {
+                alert("कृपया योग्य १० अंकी मोबाईल नंबर टाका (उदा. 9876543210)");
+                return;
+            }
+            regBtn.disabled = true;
+            regBtn.innerText = "Processing...";
+            regStatus.style.display = "block";
+            fetch(scriptURL, { method: 'POST', body: new FormData(regForm), mode: 'no-cors' })
+            .then(() => {
+                localStorage.setItem('iti_registered', 'true');
+                unlockSite();
+                window.scrollTo(0, 0);
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert("नोंदणी अयशस्वी. पुन्हा प्रयत्न करा.");
+                regBtn.disabled = false;
+                regBtn.innerText = "नोंदणी करा आणि वेबसाईट पहा";
+                regStatus.style.display = "none";
+            });
+        });
+
         const tradesData = [
-            { id: 1, name: "Welder", duration: "1 Year", seats: 20, img: "IMG_20260211_105441.jpg", info: "धातू जोडण्याचे तंत्र शिकवणारा अत्यंत मागणी असलेला तांत्रिक ट्रेड.", syllabus: ["Arc Welding", "Gas Welding", "Plasma Cutting", "TIG/MIG Welding","Blueprint Reading","Weld Inspection","Safety Equipment","Metal Prepration","Electrode Choice","Maintenance"], career: ["Automobile Industries", "Shipbuilding Yards", "Construction Sector","Self-Employment"], videoUrl: "https://youtu.be/YyrodobOsgU", practiceUrl: "https://youtu.be/CshrFEEydlk?si=Fdtjk23gWQ1_cmKv" },
-            { id: 2, name: "Welder DST", duration: "1 Year", seats: 20, img: "IMG_20260211_105441.jpg", info: "ड्युअल सिस्टम ट्रेनिंग अंतर्गत प्रत्यक्ष कंपनीत प्रशिक्षणाची संधी.", syllabus: ["Industrial Safety", "Advanced Joining", "Quality Control","Gas cutting","Workshop Calc","Engg Drawing","Practical Training","Metal Properties","Fabrication","Safety Protocols"], career: ["Manufacturing Hubs", "Railway Workshops","Oil and Gas Plants","Structural Fabricator"], videoUrl: "https://www.youtube.com/results?search_query=ITI+Welder+DST+Trade", practiceUrl: "https://youtube.com/shorts/phjW9NP1tdk?si=v_959lmkNTSNuZTI" },
-            { id: 3, name: "COPA", duration: "1 Year", seats: 24, img: "IMG_20260211_105324.jpg", info: "संगणक चालवणे आणि प्रोग्रॅमिंगमधील प्राथमिक कौशल्ये.", syllabus: ["Computer Fundamentals", "Operating Systems", "MS Office Suite", "JavaScript Programming","Database Mgmt","Networking Concept","VBA & Tally","Cyber Security","E-commerce","Web Designing"], career: ["Data Entry Operator", "IT Lab Technician","Office Assistant","Cyber Cafe Business"], videoUrl: "https://youtu.be/qAjNH8BI8Oo", practiceUrl: "https://youtube.com/shorts/FaFHo9TYoaQ?si=m42X_FZScHc7aOLF" },
-            { id: 4, name: "Mechanic Tractor", duration: "1 Year", seats: 40, img: "IMG_20260211_105605.jpg", info: "ट्रॅक्टर आणि अवजारांच्या दुरुस्तीचे तंत्र.", syllabus: ["Engine Components", "Hydraulic System", "Electrical Wiring","Fule System","Cooling System","Transmission","Farm Equipment","Brake Systems","Steering Mechanism","Engine Overhauling"], career: ["Tractor Showrooms", "Agriculture Dept","Spare Parts Shop","Repair Workshop"], videoUrl: "https://youtu.be/Q7zH64hkrNM", practiceUrl: "https://youtube.com/shorts/POzbgxToNVc?si=hTDjjFgtfTYcZ825" },
-            { id: 5, name: "Plumber", duration: "1 Year", seats: 24, img: "IMG_20260211_105407.jpg", info: "पाणीपुरवठा आणि सांडपाणी व्यवस्थापन प्रणाली.", syllabus: ["Pipe Fitting", "Water Tanks", "Sanitary Fittings","Solar Heating","Pump Maintenance","Jointing Methods","Drawing & Layout","Leakage Repair","Tool Handling","Plumbing Materials"], career: ["Municipal Corporation", "Construction Projects","Hotel Maintenance","Govt Contractor"], videoUrl: "https://youtu.be/PZuXn5wRTn4", practiceUrl: "https://youtube.com/shorts/WwUTlLZEb9g?si=qJdfUo40IsmKELj0" },
-            { id: 6, name: "Wood Work Technician", duration: "1 Year", seats: 24, img: "IMG_20260211_105534.jpg", info: "आधुनिक लाकडी फर्निचर बनवण्याचे प्रगत तंत्र.", syllabus: ["Wood Anatomy", "Joining Techniques", "Furniture Design","Sawing Methods","Wood Seasoning","Power Tools","Vaneer & Laminate","Polishing/Finishing","Machine Setup","Safety Measures"], career: ["Interior Design","Furniture Factories","Modular Kitchen Units","Entrepreneurship"], videoUrl: "https://youtu.be/Gg3yj89QDa8", practiceUrl: "" },
-            { id: 7, name: "Mechanic Motor Vehicle", duration: "2 Years", seats: 24, img: "IMG_20260211_105508.jpg", info: "चारचाकी वाहनांच्या इंजिनची सखोल माहिती.", syllabus: ["Petrol Engines", "Diesel Engines", "Chassis Design","Suspension System","ABS/Brake Systems","Electronic Ignition","Auto Electricals","Wheel Alignment","Emission Control","Engine Tuning"], career: ["Service Centers", "Vehicle Assembly","MSRTC/Govt Transport","Automobile Sales"], videoUrl: "https://youtu.be/Fc9UBOz1vVQ", practiceUrl: "https://www.youtube.com/results?search_query=ITI+MMV+Practical+Engine+Overhauling" },
-            { id: 8, name: "Electrician", duration: "2 Years", seats: 20, img: "IMG_20260211_105345.jpg", info: "विद्युत उपकरणे आणि वायरिंगची जोडणी व देखभाल.", syllabus: ["Electrical Circuits", "Transformers", "Earthing Concept","Wiring Systems","AC/DC Motors","Power Generation","Panel Wiring","Control Circuits","Winding Work","Electronic Basics"], career: ["MSEB/Power Plants", "Industrial Electrician","Electrical Contractor","Appliance Repair"], videoUrl: "https://youtu.be/bBmFXmY99lA", practiceUrl: "https://youtube.com/shorts/Mt9wf10rvjQ?si=kP6qTUgACwxLLrRq" },
-            { id: 9, name: "Turner", duration: "2 Years", seats: 20, img: "IMG-20260211-WA0011.jpg", info: "लेथ मशीनवर धातूंना आकार देण्याचे कौशल्य.", syllabus: ["Lathe Operation", "Precision Tools", "CNC Basics","Threading Work","Facing/Turning","Drilling on Lathe","Metal Hardness","Technician Drawing","Coolant Systems","Taper Turning"], career: ["Mechanical Workshops", "Defence Production","Aerospace Parts","Small Scale Industry"], videoUrl: "https://www.youtube.com/results?search_query=ITI+Turner+Trade", practiceUrl: "https://www.youtube.com/results?search_query=ITI+Turner+Practical+Lathe+Work" },
-            { id: 10, name: "Draughtsman Civil", duration: "2 Years", 24, img: "IMG_20260211_105552.jpg", info: "बांधकामाचे नकाशे और डिझाईन तयार करणे.", syllabus: ["Building Drawing", "AutoCAD Software", "Surveying Basics","RCC Design","Material Science","Roads & Bridges","Estimating/Costing","Site Layout","3D Modeling","Planning Rules"], career: ["Architectural Firms", "PWD/Govt Sector","Real Estate Companies","Surveyor Jobs"], videoUrl: "https://youtu.be/C-paxK7F_VY", practiceUrl: "https://youtube.com/shorts/K7Cvz-nN_cs?si=_MPXtDKCIAN_jZq9" },
-            { id: 11, name: "ICTSM", duration: "2 Years", seats: 20, img: "IMG_20260211_105307.jpg", info: "माहिती तंत्रज्ञान और हार्डवेअर नेटवर्किंग.", syllabus: ["Hardware Repair", "Network Cables", "Server Mgmt","Linux Admin","Troubleshooting","System Software","Electronic Theory","Security Tools","Wireless Tech","UPS/Peripheral"], career: ["Hardware Engineer", "CCTV Installation","IT support Analyst","Network Admin"], videoUrl: "https://youtu.be/54v_78SplPM", practiceUrl: "https://youtube.com/shorts/ULgbdFScn5Y?si=FBm0Po6r-iRhcsNW" },
-            { id: 12, name: "Machinist", duration: "2 Years", seats: 24, img: "IMG_20260211_105038.jpg", info: "विविध मशिनरीद्वारे धातू कापण्याचे तंत्र.", syllabus: ["Milling Machines", "Gear Cutting", "Measurement Tools","Grinding Work","Shaper/Planer","Indexing Methods","CNC Programming","Blueprint Layout","Surface Finishing","Machine Lubrication"], career: ["Heavy Engineering", "Production Dept","Tool & Die Rooms","Machine Operator"], videoUrl: "https://youtu.be/_SC-BNCu8mA", practiceUrl: "https://youtube.com/shorts/TQkBd-77vTo?si=XUxquFK5VzPlXXWy" },
-            { id: 13, name: "Fitter", duration: "2 Years", seats: 20, img: "IMG_20260211_105428.jpg", info: "यंत्राचे सुटे भाग जोडणे आणि मेंटेनन्स.", syllabus: ["Filing & Scraping", "Maintenance", "Drilling/Reaming","Pipe Fitting","Lathe Work Basics","Vernier/Micrometer","Engg Drawing","Riveting Work","Industrial Safety","Lubricans"], career: ["Railway Workshops", "Manufacturing Units","Power Sector","Assembly Line"], videoUrl: "https://youtu.be/U68g3fP77X0", practiceUrl: "https://youtube.com/shorts/MAWCXb-k3RE?si=MOV0a8jhNjtXsPGw" }
+            { id: 1, name: "Welder", duration: "1 Year", seats: "16+4(IMC)=20", img: "IMG_20260211_105441.jpg", info: "धातू जोडण्याचे तंत्र शिकवणारा अत्यंत मागणी असलेला तांत्रिक ट्रेड.", syllabus: ["Arc Welding", "Gas Welding", "Plasma Cutting", "TIG/MIG Welding","Blueprint Reading","Weld Inspection","Safety Equipment","Metal Prepration","Electrode Choice","Maintenance"], career: ["Automobile Industries", "Shipbuilding Yards", "Construction Sector","Self-Employment"], videoUrl: "https://youtu.be/YyrodobOsgU", practiceUrl: "https://youtu.be/CshrFEEydlk?si=Fdtjk23gWQ1_cmKv" },
+            { id: 2, name: "Welder DST", duration: "1 Year", seats: "16+4(IMC)=20", img: "IMG_20260211_105441.jpg", info: "ड्युअल सिस्टम ट्रेनिंग अंतर्गत प्रत्यक्ष कंपनीत प्रशिक्षणाची संधी.", syllabus: ["Industrial Safety", "Advanced Joining", "Quality Control","Gas cutting","Workshop Calc","Engg Drawing","Practical Training","Metal Properties","Fabrication","Safety Protocols"], career: ["Manufacturing Hubs", "Railway Workshops","Oil and Gas Plants","Structural Fabricator"], videoUrl: "https://www.youtube.com/results?search_query=ITI+Welder+DST+Trade", practiceUrl: "https://youtube.com/shorts/phjW9NP1tdk?si=v_959lmkNTSNuZTI" },
+            { id: 3, name: "COPA", duration: "1 Year", seats: "19+5(IMC)=24", img: "IMG_20260211_105324.jpg", info: "संगणक चालवणे आणि प्रोग्रॅमिंगमधील प्राथमिक कौशल्ये.", syllabus: ["Computer Fundamentals", "Operating Systems", "MS Office Suite", "JavaScript Programming","Database Mgmt","Networking Concept","VBA & Tally","Cyber Security","E-commerce","Web Designing"], career: ["Data Entry Operator", "IT Lab Technician","Office Assistant","Cyber Cafe Business"], videoUrl: "https://youtu.be/qAjNH8BI8Oo", practiceUrl: "https://youtube.com/shorts/FaFHo9TYoaQ?si=m42X_FZScHc7aOLF" },
+            { id: 4, name: "Mechanic Tractor", duration: "1 Year", seats: "32+8(IMC)=40", img: "IMG_20260211_105605.jpg", info: "ट्रॅक्टर आणि अवजारांच्या दुरुस्तीचे तंत्र.", syllabus: ["Engine Components", "Hydraulic System", "Electrical Wiring","Fule System","Cooling System","Transmission","Farm Equipment","Brake Systems","Steering Mechanism","Engine Overhauling"], career: ["Tractor Showrooms", "Agriculture Dept","Spare Parts Shop","Repair Workshop"], videoUrl: "https://youtu.be/Q7zH64hkrNM", practiceUrl: "https://youtube.com/shorts/POzbgxToNVc?si=hTDjjFgtfTYcZ825" },
+            { id: 5, name: "Plumber", duration: "1 Year", seats: "19+5(IMC)=24", img: "IMG_20260211_105407.jpg", info: "पाणीपुरवठा आणि सांडपाणी व्यवस्थापन प्रणाली.", syllabus: ["Pipe Fitting", "Water Tanks", "Sanitary Fittings","Solar Heating","Pump Maintenance","Jointing Methods","Drawing & Layout","Leakage Repair","Tool Handling","Plumbing Materials"], career: ["Municipal Corporation", "Construction Projects","Hotel Maintenance","Govt Contractor"], videoUrl: "https://youtu.be/PZuXn5wRTn4", practiceUrl: "https://youtube.com/shorts/WwUTlLZEb9g?si=qJdfUo40IsmKELj0" },
+            { id: 6, name: "Wood Work Technician", duration: "1 Year", seats: "19+5(IMC)=24", img: "IMG_20260211_105534.jpg", info: "आधुनिक लाकडी फर्निचर बनवण्याचे प्रगत तंत्र.", syllabus: ["Wood Anatomy", "Joining Techniques", "Furniture Design","Sawing Methods","Wood Seasoning","Power Tools","Vaneer & Laminate","Polishing/Finishing","Machine Setup","Safety Measures"], career: ["Interior Design","Furniture Factories","Modular Kitchen Units","Entrepreneurship"], videoUrl: "https://youtu.be/Gg3yj89QDa8", practiceUrl: "" },
+            { id: 7, name: "Mechanic Motor Vehicle", duration: "2 Years", seats: "19+5(IMC)=24", img: "IMG_20260211_105508.jpg", info: "चारचाकी वाहनांच्या इंजिनची सखोल माहिती.", syllabus: ["Petrol Engines", "Diesel Engines", "Chassis Design","Suspension System","ABS/Brake Systems","Electronic Ignition","Auto Electricals","Wheel Alignment","Emission Control","Engine Tuning"], career: ["Service Centers", "Vehicle Assembly","MSRTC/Govt Transport","Automobile Sales"], videoUrl: "https://youtu.be/Fc9UBOz1vVQ", practiceUrl: "https://www.youtube.com/results?search_query=ITI+MMV+Practical+Engine+Overhauling" },
+            { id: 8, name: "Electrician", duration: "2 Years", seats: "16+4(IMC)=20", img: "IMG_20260211_105345.jpg", info: "विद्युत उपकरणे आणि वायरिंगची जोडणी व देखभाल.", syllabus: ["Electrical Circuits", "Transformers", "Earthing Concept","Wiring Systems","AC/DC Motors","Power Generation","Panel Wiring","Control Circuits","Winding Work","Electronic Basics"], career: ["MSEB/Power Plants", "Industrial Electrician","Electrical Contractor","Appliance Repair"], videoUrl: "https://youtu.be/bBmFXmY99lA", practiceUrl: "https://youtube.com/shorts/Mt9wf10rvjQ?si=kP6qTUgACwxLLrRq" },
+            { id: 9, name: "Fitter", duration: "2 Years", seats: "16+4(IMC)=20", img: "IMG_20260211_105428.jpg", info: "यंत्राचे सुटे भाग जोडणे आणि मेंटेनन्स.", syllabus: ["Filing & Scraping", "Maintenance", "Drilling/Reaming","Pipe Fitting","Lathe Work Basics","Vernier/Micrometer","Engg Drawing","Riveting Work","Industrial Safety","Lubricans"], career: ["Railway Workshops", "Manufacturing Units","Power Sector","Assembly Line"], videoUrl: "https://youtu.be/U68g3fP77X0", practiceUrl: "https://youtube.com/shorts/MAWCXb-k3RE?si=MOV0a8jhNjtXsPGw" },
+            { id: 10, name: "Turner", duration: "2 Years", seats: "16+4(IMC)=20", img: "IMG-20260211-WA0011.jpg", info: "लेथ मशीनवर धातूंना आकार देण्याचे कौशल्य.", syllabus: ["Lathe Operation", "Precision Tools", "CNC Basics","Threading Work","Facing/Turning","Drilling on Lathe","Metal Hardness","Technician Drawing","Coolant Systems","Taper Turning"], career: ["Mechanical Workshops", "Defence Production","Aerospace Parts","Small Scale Industry"], videoUrl: "https://www.youtube.com/results?search_query=ITI+Turner+Trade", practiceUrl: "https://www.youtube.com/results?search_query=ITI+Turner+Practical+Lathe+Work" },
+            { id: 11, name: "Draughtsman Civil", duration: "2 Years", seats: "19+5(IMC)=24", img: "IMG_20260211_105552.jpg", info: "बांधकामाचे नकाशे आणि डिझाईन तयार करणे.", syllabus: ["Building Drawing", "AutoCAD Software", "Surveying Basics","RCC Design","Material Science","Roads & Bridges","Estimating/Costing","Site Layout","3D Modeling","Planning Rules"], career: ["Architectural Firms", "PWD/Govt Sector","Real Estate Companies","Surveyor Jobs"], videoUrl: "https://youtu.be/C-paxK7F_VY", practiceUrl: "https://youtube.com/shorts/K7Cvz-nN_cs?si=_MPXtDKCIAN_jZq9" },
+            { id: 12, name: "Machinist", duration: "2 Years", seats: "19+5(IMC)=24", img: "IMG_20260211_105038.jpg", info: "विविध मशिनरीद्वारे धातू कापण्याचे तंत्र.", syllabus: ["Milling Machines", "Gear Cutting", "Measurement Tools","Grinding Work","Shaper/Planer","Indexing Methods","CNC Programming","Blueprint Layout","Surface Finishing","Machine Lubrication"], career: ["Heavy Engineering", "Production Dept","Tool & Die Rooms","Machine Operator"], videoUrl: "https://youtu.be/_SC-BNCu8mA", practiceUrl: "https://youtube.com/shorts/TQkBd-77vTo?si=XUxquFK5VzPlXXWy" },
+            { id: 13, name: "ICTSM", duration: "2 Years", seats: 20, img: "IMG_20260211_105307.jpg", info: "माहिती तंत्रज्ञान आणि हार्डवेअर नेटवर्किंग.", syllabus: ["Hardware Repair", "Network Cables", "Server Mgmt","Linux Admin","Troubleshooting","System Software","Electronic Theory","Security Tools","Wireless Tech","UPS/Peripheral"], career: ["Hardware Engineer", "CCTV Installation","IT support Analyst","Network Admin"], videoUrl: "https://youtu.be/54v_78SplPM", practiceUrl: "https://youtube.com/shorts/ULgbdFScn5Y?si=FBm0Po6r-iRhcsNW" }
         ];
     
         function renderTrades() {
@@ -341,9 +440,12 @@
 
         window.onclick = e => { if (e.target.className === 'modal') closeModal(); }
         
-        // Website opens directly on Home page now
         window.onload = () => {
-            showHome();
+            if(localStorage.getItem('iti_registered') === 'true') {
+                unlockSite();
+            } else {
+                siteWrapper.style.display = 'none';
+            }
         };
     </script>
 </body>
