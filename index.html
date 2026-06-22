@@ -82,12 +82,56 @@
         .principal-text-box h3 { color: #007bff; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
         .principal-text-box p { color: #444; line-height: 1.6; font-size: 0.98rem; text-align: justify; }
 
+        /* ================= NEW: Moving & Blinking Notice Board Styles ================= */
+        .notice-ticker-container {
+            background: #ffc107; /* पिवळा बॅकग्राउंड आकर्षक दिसण्यासाठी */
+            color: #000;
+            display: flex;
+            align-items: center;
+            padding: 8px 10px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            border-bottom: 2px solid #e0a800;
+        }
+        .notice-label {
+            background: #dc3545; /* लाल रंगाचा 'महत्वाची सूचना' टॅग */
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            margin-right: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .notice-ticker {
+            flex: 1;
+            font-size: 1rem;
+        }
+        .notice-ticker marquee {
+            vertical-align: middle;
+        }
+        .blink-text {
+            color: #dc3545; /* लाल रंगात ब्लिंक होईल */
+            animation: blinker 1s linear infinite;
+            background: #fff;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+        /* ============================================================================= */
+
         @media (max-width: 768px) {
             .trades-container, .about-container, .gallery-grid, .grid-3, .contact-grid, .contact-info-cards, .criteria-list { grid-template-columns: 1fr; }
             .modal-content { width: 95%; }
             .points-grid, .career-list { grid-template-columns: 1fr; }
             .principal-section { flex-direction: column; text-align: center; }
             .principal-text-box p { text-align: center; }
+            .notice-ticker-container { flex-direction: column; text-align: center; gap: 5px; }
+            .notice-label { margin-right: 0; width: 100%; box-sizing: border-box; }
         }
     </style>
 </head>
@@ -111,6 +155,17 @@
                 </ul>
             </nav>
         </header>
+
+        <!-- ================= NEW: Notice Board Section ================= -->
+        <div class="notice-ticker-container">
+            <div class="notice-label">🎯 नवीन सूचना / Notice</div>
+            <div class="notice-ticker">
+                <marquee behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
+                    <span class="blink-text">🔥 Admission Open 2026-27 :</span> सत्र २०२६-२७ साठी औद्योगिक प्रशिक्षण संस्था (ITI) पंढरपूर येथे प्रवेश प्रक्रिया सुरू झाली आहे! इच्छुकांनी त्वरित संपर्क साधावा. | ⚡ सर्व ट्रेड्सचे प्रवेश 'प्रथम येणाऱ्यास प्राधान्य' या तत्त्वावर ऑनलाइन पद्धतीने सुरू आहेत.
+                </marquee>
+            </div>
+        </div>
+        <!-- ============================================================= -->
 
         <div id="home-content">
             <section class="hero-section">
@@ -189,7 +244,7 @@
             <div class="principal-section">
                 <div class="principal-img-box">
                     <img src="principal_photo.jpg" alt="Principal" onerror="this.src='https://via.placeholder.com/180x220?text=Principal+Photo'">
-                    <h4>श्री. [मा.श्री.संतोष कदम]</h4>
+                    <h4>श्री. [प्राचार्यांचे नाव]</h4>
                     <p>प्राचार्य (Principal)</p>
                 </div>
                 <div class="principal-text-box">
@@ -204,7 +259,7 @@
                 <div class="facility-card"><div class="facility-icon">🏢</div><h4>Sprawling Campus</h4><p>Our campus spreads across 27 acres of lush green environment.</p></div>
                 <div class="facility-card"><div class="facility-icon">🏠</div><h4>Boys Hostel</h4><p>Hostel facilities are available for boys with all basic amenities.</p></div>
                 <div class="facility-card"><div class="facility-icon">👔</div><h4>Staff Quarters</h4><p>On-campus residential facilities for our dedicated staff.</p></div>
-                <div class="facility-card"><div class="facility-icon">🏡</div><h4>Principal's Residence</h4><p>Dedicated Principal's Residence within the campus.</p></div>
+                <div class="facility-card"><div class="facility-icon">🏢</div><h4>Principal's Residence</h4><p>Dedicated Principal's Residence within the campus.</p></div>
                 <div class="facility-card"><div class="facility-icon">🌳</div><h4>Green Campus</h4><p>Our college campus is beautifully adorned with almond trees.</p></div>
                 <div class="facility-card"><div class="facility-icon">💧</div><h4>RO Water</h4><p>Purified RO water facility is available for all students and staff.</p></div>
                 <div class="facility-card"><div class="facility-icon">💻</div><h4>IT Lab</h4><p>Advanced IT Lab equipped with 21 PCs and a modern smart screen.</p></div>
@@ -380,7 +435,6 @@
         function showContact() { hideAll(); document.getElementById('contact-section').style.display = 'block'; }
         function showExam() { hideAll(); document.getElementById('exam-section').style.display = 'block'; }
 
-        // Form Submit Prevent Default logic
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('फीडबॅक यशस्वीरित्या सबमिट झाला!');
