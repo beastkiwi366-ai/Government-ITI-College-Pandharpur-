@@ -232,7 +232,7 @@
             <div class="trades-container" id="trades-list"></div>
         </section>
 
-        <section id="contact-section">
+       <section id="contact-section">
             <h3 style="text-align:center; margin-bottom:30px;">संपर्क (Contact Us)</h3>
             <div class="contact-grid">
                 <div>
@@ -240,15 +240,35 @@
                         <div class="contact-card"><h4>📍 Address</h4><p>जुना कासेगाव रोड, पंढरपुर, जि. सोलापूर - ४१३३०४</p></div>
                         <div class="contact-card"><h4>📞 Phone</h4><p>+91 89838 98170</p></div>
                         <div class="contact-card"><h4>✉️ Email</h4><p>iti.pandharpur@dvet.gov.in</p></div>
-                        <div class="contact-card"><h4>⏰ Office Hours</h4><p>सकाळी १०:०० ते संध्याकाळी ५:00<br>(रविवार बंद)</p></div>
+                        <div class="contact-card"><h4>⏰ Office Hours</h4><p>सकाळी १०:०० ते संध्याकाळी ५:००<br>(रविवार बंद)</p></div>
                     </div>
                     <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3801.446860163351!2d75.32837807431057!3d17.652643595116792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc41703080f5555%3A0xc47e33f38072045e!2sGovernment%20Industrial%20Training%20Institute%2C%20Pandharpur!5e0!3m2!1sen!2sin!4v1707920000000!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3803.0763784110825!2d75.3188502!3d17.6713788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc419df9463b369%3A0xe103ee0d8dbf4369!2sGovernment%20Industrial%20Training%20Institute%20Pandharpur!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
-                 </section>
-        
-                   <div id="tradeModal" class="modal">
+                
+                <div class="feedback-form">
+                    <h3>फीडबॅक / चौकशी (Feedback)</h3>
+                    <form id="feedbackForm">
+                        <div class="form-group"><label>पूर्ण नाव</label><input type="text" name="fullName" required></div>
+                        <div class="form-group"><label>ईमेल</label><input type="email" name="email" required></div>
+                        <div class="form-group"><label>मोबाईल</label><input type="tel" name="phone" pattern="[0-9]{10}" required></div>
+                        <div class="form-group">
+                            <label>विषय</label>
+                            <select name="subject" required>
+                                <option value="Admission">Admission Enquiry</option>
+                                <option value="Course">Course Information</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><label>संदेश</label><textarea name="message" rows="4" required></textarea></div>
+                        <button type="submit" class="submit-btn">Submit Feedback</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="tradeModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">×</span>
             <div id="modal-body"></div>
