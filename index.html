@@ -72,10 +72,22 @@
         .practice-btn { background-color: #28a745; }
         .video-btn:hover { opacity: 0.8; color: #fff; }
 
+        /* Principal Message Styles */
+        .principal-section { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; gap: 30px; margin-bottom: 40px; align-items: center; }
+        .principal-img-box { flex: 1; text-align: center; min-width: 200px; }
+        .principal-img-box img { width: 180px; height: 220px; object-fit: cover; border-radius: 8px; border: 3px solid #007bff; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .principal-img-box h4 { margin: 10px 0 2px 0; color: #333; font-size: 1.1rem; }
+        .principal-img-box p { margin: 0; color: #666; font-size: 0.9rem; font-weight: bold; }
+        .principal-text-box { flex: 3; }
+        .principal-text-box h3 { color: #007bff; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .principal-text-box p { color: #444; line-height: 1.6; font-size: 0.98rem; text-align: justify; }
+
         @media (max-width: 768px) {
             .trades-container, .about-container, .gallery-grid, .grid-3, .contact-grid, .contact-info-cards, .criteria-list { grid-template-columns: 1fr; }
             .modal-content { width: 95%; }
             .points-grid, .career-list { grid-template-columns: 1fr; }
+            .principal-section { flex-direction: column; text-align: center; }
+            .principal-text-box p { text-align: center; }
         }
     </style>
 </head>
@@ -166,7 +178,7 @@
                 <h4>Passing Criteria (उत्तीर्ण होण्याचे निकष)</h4>
                 <div class="criteria-list">
                     <div class="criteria-item"><strong>40% Minimum:</strong> Theory (CBT) मध्ये किमान 40% गुण आवश्यक.</div>
-                    <div class="criteria-item"><strong>60% Minimum:</strong> Practical और Sessional मध्ये किमान 60% गुण आवश्यक.</div>
+                    <div class="criteria-item"><strong>60% Minimum:</strong> Practical ओर Sessional मध्ये किमान 60% गुण आवश्यक.</div>
                     <div class="criteria-item"><strong>40% Aggregate:</strong> एकूण निव्वळ सरासरी किमान 40% असावी.</div>
                     <div class="criteria-item"><strong>Attendance:</strong> प्रशिक्षणादरम्यान किमान 80% उपस्थिती अनिवार्य.</div>
                 </div>
@@ -174,6 +186,19 @@
         </section>
 
         <section id="about-section">
+            <div class="principal-section">
+                <div class="principal-img-box">
+                    <img src="principal_photo.jpg" alt="Principal" onerror="this.src='https://via.placeholder.com/180x220?text=Principal+Photo'">
+                    <h4>श्री. [मा.श्री.संतोष कदम]</h4>
+                    <p>प्राचार्य (Principal)</p>
+                </div>
+                <div class="principal-text-box">
+                    <h3>प्राचार्यांचा संदेश (Principal's Message)</h3>
+                    <p>प्रिय विद्यार्थ्यांनो आणि पालकांनो, यशवंतराव केळकर शासकीय औद्योगिक प्रशिक्षण संस्था, पंढरपूरच्या अधिकृत संकेतस्थळावर आपले सहर्ष स्वागत! आपल्या संस्थेचा मुख्य उद्देश ग्रामीण व शहरी भागातील तरुण-तरुणींना दर्जेदार तांत्रिक शिक्षण देऊन त्यांना स्वावलंबी बनवणे हा आहे.</p>
+                    <p>आजच्या वेगाने बदलणाऱ्या औद्योगिक युगात कौशल्याला (Skills) अनन्यसाधारण महत्त्व आहे. आमचे अनुभवी प्रशिक्षक आणि आधुनिक वर्कशॉप्सच्या माध्यमातून आम्ही विद्यार्थ्यांना प्रत्यक्ष कामाचा अनुभव (Practical Knowledge) देतो, जेणेकरून ते जागतिक स्तरावर स्पर्धा करू शकतील. केवळ नोकरी मिळवणे नव्हे, तर नवीन उद्योजक घडवणे हे आमचे ध्येय आहे. आपण या तांत्रिक प्रवासाचा भाग व्हावे आणि आपले भविष्य उज्ज्वल करावे, हीच सदिच्छा!</p>
+                </div>
+            </div>
+
             <h3 style="text-align:center; margin-bottom:30px;">आमच्या बद्दल (About Us / Infrastructure)</h3>
             <div class="about-container">
                 <div class="facility-card"><div class="facility-icon">🏢</div><h4>Sprawling Campus</h4><p>Our campus spreads across 27 acres of lush green environment.</p></div>
@@ -218,8 +243,9 @@
                 <div class="gallery-grid">
                     <div class="gallery-item"><img src="certificate.jpg" alt="प्रमाणपत्र"></div>
                 </div>
+            </div>
                 
-                 <div class="gallery-category">
+            <div class="gallery-category">
                 <h4 class="gallery-title">5. राष्ट्रीय सेवा योजना (NSS)</h4>
                 <div class="gallery-grid grid-3">
                     <div class="gallery-item"><img src="NSS0.jpg" alt="राष्ट्रीय सेवा योजना"></div>
@@ -299,7 +325,7 @@
             { id: 12, name: "Machinist", duration: "2 Years", seats: "19+5(IMC)=24", img: "IMG_20260211_105038.jpg", info: "विविध मशिनरीद्वारे धातू कापण्याचे तंत्र.", syllabus: ["Milling Machines", "Gear Cutting", "Measurement Tools","Grinding Work","Shaper/Planer","Indexing Methods","CNC Programming","Blueprint Layout","Surface Finishing","Machine Lubrication"], career: ["Heavy Engineering", "Production Dept","Tool & Die Rooms","Machine Operator"], videoUrl: "https://youtu.be/_SC-BNCu8mA", practiceUrl: "https://youtube.com/shorts/TQkBd-77vTo?si=XUxquFK5VzPlXXWy" },
             { id: 13, name: "ICTSM", duration: "2 Years", seats: "19+5(IMC)=24", img: "banner.png", info: "माहिती तंत्रज्ञान आणि हार्डवेअर नेटवर्किंग.", syllabus: ["Hardware Repair", "Network Cables", "Server Mgmt","Linux Admin","Troubleshooting","System Software","Electronic Theory","Security Tools","Wireless Tech","UPS/Peripheral"], career: ["Hardware Engineer", "CCTV Installation","IT support Analyst","Network Admin"], videoUrl: "https://youtu.be/54v_78SplPM", practiceUrl: "https://youtube.com/shorts/ULgbdFScn5Y?si=FBm0Po6r-iRhcsNW" }
         ];
-    
+        
         function renderTrades() {
             const container = document.getElementById('trades-list');
             container.innerHTML = tradesData.map(trade => `
